@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { LOAD_USERS } from "../GraphQL/Queries";
-
 import { JL } from "jsnlog";
 
-JL.setOptions({
-  defaultAjaxUrl: "http://localhost:6969/logger",
-});
-
-const logOptions = { appName: "Market", sid: "D123456", appVersion: "1" };
-
-var logger = JL(JSON.stringify(logOptions));
+const logger = JL("GetUsers.js");
 
 function GetUsers() {
   const { error, loading, data } = useQuery(LOAD_USERS, {
