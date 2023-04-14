@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { CREATE_USER_MUTATION } from "../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
 import { JL } from "jsnlog";
+import { CL } from "../data";
 
 const logger = JL("Form.js");
+const CLogger = CL("Form.js");
 
 function Form() {
   const [firstName, setFirstName] = useState("");
@@ -24,6 +26,7 @@ function Form() {
     });
 
     logger.info("adding user!");
+    CLogger.info("form.js add user!");
 
     if (error) {
       console.log(error);

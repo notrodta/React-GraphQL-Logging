@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { LOAD_USERS } from "../GraphQL/Queries";
 import { JL } from "jsnlog";
+import { CL } from "../data";
 
 const logger = JL("GetUsers.js");
+
+const CLogger = CL("getUser.js");
 
 function GetUsers() {
   const { error, loading, data } = useQuery(LOAD_USERS, {
@@ -28,6 +31,7 @@ function GetUsers() {
   // console.log(stuff);
 
   useEffect(() => {
+    CLogger.info("get user test!!");
     if (data) {
       // console.log(error, loading, data.getAllUsers);
       setUsers(data.getAllUsers);
