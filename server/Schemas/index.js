@@ -9,6 +9,7 @@ const {
 const userData = require("../MOCK_DATA.json");
 
 const UserType = require("./TypeDefs/UserType");
+var JL = require("jsnlog").JL;
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
@@ -17,7 +18,15 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       args: { id: { type: GraphQLInt } },
       resolve(parent, args) {
-        return userData;
+        // JL().info("in here query!");
+        // console.log(parent, args);
+        if (args.id) {
+          JL().info(`getting user with id: ${args.id}`);
+          const data = userData.filter((x) => x.id === args.id);
+          return data;
+        } else {
+          return userData;
+        }
       },
     },
   },
