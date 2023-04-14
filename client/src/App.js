@@ -10,7 +10,7 @@ import { onError } from "@apollo/client/link/error";
 import GetUsers from "./Components/GetUsers";
 import Form from "./Components/Form";
 import { JL } from "jsnlog";
-import { CL } from "./data";
+import { CL, initialize } from "./loggingService";
 
 const logOptions = { appName: "Market", sid: "D123456", appVersion: "1" };
 
@@ -21,8 +21,8 @@ JL.setOptions({
 
 var logger = JL(JSON.stringify(logOptions));
 
+initialize({ appName: "market", SID: "D456456" });
 const cLogger = CL("App.js");
-cLogger.setOptions({ appName: "market", SID: "D456456" });
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {

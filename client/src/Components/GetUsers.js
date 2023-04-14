@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { LOAD_USERS } from "../GraphQL/Queries";
 import { JL } from "jsnlog";
-import { CL } from "../data";
+import { CL } from "../loggingService";
 
 const logger = JL("GetUsers.js");
 

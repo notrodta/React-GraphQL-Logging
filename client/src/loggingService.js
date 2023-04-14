@@ -1,4 +1,4 @@
-class Data {
+class LoggingService {
   constructor(name) {
     this.name = name;
     this.loggerEndpoint = null;
@@ -15,14 +15,20 @@ class Data {
   info(msg) {
     const options = JSON.stringify({ appName: this.appName, SID: this.SID });
     console.log(`${this.name}: {message: ${msg}}, requestId: ${options}`);
+    fetch("https://randomuser.me/api")
+      .then((response) => response.json())
+      .then((data) => console.log(data.results[0].name.first))
+      .catch((error) => console.error(error));
   }
 }
 
-let data = null;
+let loggingService = new LoggingService();
 
 export function CL(fullName) {
-  if (data === null) {
-    data = new Data(fullName);
-  }
-  return data;
+  loggingService.name = fullName;
+  return loggingService;
+}
+
+export function initialize(data) {
+  loggingService.setOptions(data);
 }

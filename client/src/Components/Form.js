@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CREATE_USER_MUTATION } from "../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
 import { JL } from "jsnlog";
-import { CL } from "../data";
+import { CL } from "../loggingService";
 
 const logger = JL("Form.js");
 const CLogger = CL("Form.js");
