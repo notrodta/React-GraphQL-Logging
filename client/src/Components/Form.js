@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { CREATE_USER_MUTATION } from "../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
+import { JL } from "jsnlog";
+
+const logger = JL("Form.js");
 
 function Form() {
   const [firstName, setFirstName] = useState("");
@@ -19,6 +22,8 @@ function Form() {
         password: password,
       },
     });
+
+    logger.info("adding user!");
 
     if (error) {
       console.log(error);

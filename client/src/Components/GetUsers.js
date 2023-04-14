@@ -20,8 +20,9 @@ function GetUsers() {
         (x) => x.message
       );
       logger.info(`Something went wrong: ${networkErrorMsg}`);
-      console.log(error.networkError.result.errors);
+      // console.log(error.networkError.result.errors);
       console.log(networkErrorMsg);
+      console.log({ error });
     },
   });
 

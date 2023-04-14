@@ -11,11 +11,12 @@ import GetUsers from "./Components/GetUsers";
 import Form from "./Components/Form";
 import { JL } from "jsnlog";
 
+const logOptions = { appName: "Market", sid: "D123456", appVersion: "1" };
+
 JL.setOptions({
   defaultAjaxUrl: "http://localhost:6969/logger",
+  requestId: JSON.stringify(logOptions),
 });
-
-const logOptions = { appName: "Market", sid: "D123456", appVersion: "1" };
 
 var logger = JL(JSON.stringify(logOptions));
 
