@@ -15,3 +15,7 @@ BackEnd:
 - ExpressJS
 - GraphQL
 - Express-GraphQL
+
+Start client: npm start
+
+Start server: node index
